@@ -1,0 +1,60 @@
+******************************************
+*      TYPE OF RUN AND SYSTEM            *
+******************************************
+USPEX : calculationMethod (USPEX, VCNEB, META)
+-201  : calculationType (dimension: 0-3; molecule: 0/1; varcomp: 0/1)
+6.0  : thicknessS
+160    : pickUpGen
+
+% vacuumSize
+22 22 22 22 
+% endVacuumSize
+
+% optType
+1
+% EndOptType
+
+% numSpecies
+1 0
+0 1
+% EndNumSpecies
+
+2  :  minAt
+6 : maxAt
+
+% atomType
+Al Sb
+% EndAtomType
+******************************************
+*               POPULATION               *
+******************************************
+20    : populationSize
+50    : initialPopSize
+200    : numGenerations
+10    : stopCrit
+0     : reoptOld
+******************************************
+*          VARIATION OPERATORS           *
+******************************************
+0.50  : fracGene
+0.10  : fracRand
+0.00  : fracPerm
+0.20  : fracLatMut
+0.20  : fracAtomsMut
+*****************************************
+*   DETAILS OF AB INITIO CALCULATIONS   *
+*****************************************
+% abinitioCode
+1 1
+% ENDabinit
+
+% KresolStart
+0.12 0.06
+%  Kresolend
+
+% commandExecutable
+srun -N 1 -n 64 -p amd_256 /public1/home/sc90805/cmk/vasp.5.4.4-vtst/bin/vasp_std_Zconstr
+% EndExecutable
+
+25       : numParallelCalcs (how many parallel calculations shall be performed)
+1        : whichCluster (0: no-job-script, 1: local submission, 2: remote submission)
